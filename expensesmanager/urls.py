@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import settings
 
 urlpatterns = [
     path('authentication/', include('authentication.urls')),
@@ -25,3 +26,6 @@ urlpatterns = [
     path('income/', include('userincome.urls')),
 
 ]
+if settings.DEBUG:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    urlpatterns += staticfiles_urlpatterns()

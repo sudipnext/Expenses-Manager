@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-kdq!yn((kdhp*xo-jw-x63p+y9h8x4_7ry+0ci!v0h$mw-06fs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['expense-manager-uoyu.onrender.com']
 
 
 # Application definition
