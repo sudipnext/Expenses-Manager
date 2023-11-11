@@ -1,0 +1,65 @@
+{% extends 'base_auth.html' %} 
+{% load static %}
+{% block content %}
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-6">
+    <div class="card mt-5">
+        <div class="card-body">    
+        <h4>Register for a free account</h4>
+        <form action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+          
+          {% include 'partials/_messages.html' %}
+          <div class="from-group">
+            <input
+              type="email"
+              name="email"
+              id="emailField"
+              placeholder="email"
+              value="{{fieldValues.email}}"
+              class="form-control form-control-sm"
+            />
+          </div>
+          <div id="email_feedback", style="display: none;">
+          </div>
+          <div class="from-group">
+            <input
+              type="text"
+              name="username"
+              id="usernameField"
+              placeholder="username"
+              value="{{fieldValues.username}}"
+
+              class="form-control form-control-sm"
+            />
+          </div>
+          <div id="invalid_feedback", style="display: none;">
+             
+          </div>
+          <div class="from-group">
+            <input
+              type="password"
+              name="password"
+              id="passwordField"
+              placeholder="password"
+              required="true"
+              class="form-control form-control-sm"
+            />
+            <div id="ShowPasswordToggle" class="ShowPasswordToggle" style="display:block; margin-left: auto; border: 2px solid black; float: right;">SHOW</div>
+          </div>
+          <input type="submit" id="my-button" value="Register" id="submitbutton" class="btn btn-block btn-primary" />
+        </form>
+    </div>
+      <div style="display: flex; align-items:center; flex-direction: column; padding-bottom: 20px;">
+    <span>Have an account? </span><a href="{% url 'login' %}">Login</a>
+  
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock%}
+
